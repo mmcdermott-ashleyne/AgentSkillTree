@@ -4,6 +4,18 @@ Turn LLMs into reliable junior devs by providing a set of structured, repo-local
 
 This repo is feature-first. Most skills resolve a feature name to a stable mapping in the registry, then operate with safe git/no-git guardrails.
 
+## Requirements
+- Codex CLI with skills enabled.
+- Git on PATH for git-mode skills (optional if using Mode=local).
+- GitHub CLI (`gh`) for `$pr-open` / `$pr-automerge-cleanup` (optional).
+- Windows PowerShell available for the scripts as written.
+
+## Where to put skills
+Install skills into your Codex skills directory and reference them from `AGENTS.md`.
+- Default skills location: `%USERPROFILE%\.codex\skills\` (i.e., `$CODEX_HOME/skills`).
+- Each skill lives in its own folder containing `SKILL.md`.
+- This repo’s `AGENTS.md` should point to the installed skill paths.
+
 ## Quick start
 1) Run `$bootstrap-agents` to create `.dev-docs` scaffolding and templates.
 2) Run `$feature-create` with `Feature: <name>` to create a feature entry and spec.
