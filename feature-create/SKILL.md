@@ -2,8 +2,9 @@
 name: feature-create
 description: "Create or update a feature registry entry and seed feature files. Feature-first, safe, idempotent."
 metadata:
-  short-description: "Create feature + spec + registry"
+  short-description: "Create feature + spec + status + registry"
 ---
+
 # feature-create
 
 Create or update a feature in the registry, seed its spec/status files, and set it as current.
@@ -20,6 +21,7 @@ Create or update a feature in the registry, seed its spec/status files, and set 
 - Current pointer: `.dev-docs/features/CURRENT_FEATURE.txt`
 - Feature spec: `.dev-docs/features/<feature_id>/SPEC.md`
 - Feature status: `.dev-docs/features/<feature_id>/STATUS.json`
+- Feature history dir (durable): `.dev-docs/features/<feature_id>/history/`
 - Branch: `feat/<agent_id>/<slug>`
 - Worktree: `.worktrees/agent-<agent_id>`
 
@@ -47,8 +49,9 @@ Create or update a feature in the registry, seed its spec/status files, and set 
    - Update `name`, `agent_id`, `slug`, `branch`, `worktree`, `updated_at`.
    - If missing, set `created_at`.
 
-6) Ensure feature files:
+6) Ensure feature files and dirs:
    - Create `.dev-docs/features/<feature_id>/` if missing.
+   - Create `.dev-docs/features/<feature_id>/history/` if missing.
    - Create `SPEC.md` from template if missing.
    - Create `STATUS.json` from template if missing.
 

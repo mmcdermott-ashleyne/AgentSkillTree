@@ -4,6 +4,7 @@ description: "Implement the current plan from TASKS (feature-first). Git-aware; 
 metadata:
   short-description: "Build feature (feature-first, git/local safe)"
 ---
+
 # build
 
 Implement the plan for the current feature. Safe to run in git or non-git folders.
@@ -46,8 +47,13 @@ Implement the plan for the current feature. Safe to run in git or non-git folder
 
 6) Optional quick sanity checks using `.dev-docs/commands.md`.
 
+7) Best-effort status update:
+   - If `.dev-docs/features/<feature_id>/STATUS.json` exists:
+     - Set `state` to `in_progress` if not completed/abandoned
+     - Update `updated_at` to current UTC ISO
+
 ## Output
 When implementation is complete, print EXACTLY these 3 lines and nothing else:
-??? Build complete (code + tests updated)
-?? TASKS updated at `.dev-docs/context/agents/<agent_id>/TASKS.md`
-?? Next: run `$review`
+✅ Build complete (code + tests updated)
+🧩 TASKS updated at `.dev-docs/context/agents/<agent_id>/TASKS.md`
+🔜 Next: run `$review`

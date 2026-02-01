@@ -4,6 +4,7 @@ description: "Show resolved feature mapping and paths. No changes."
 metadata:
   short-description: "Show feature mapping"
 ---
+
 # feature-status
 
 Display the resolved feature mapping and paths without modifying files.
@@ -26,7 +27,7 @@ Display the resolved feature mapping and paths without modifying files.
 
 3) Load registry entry and print mapping:
    - feature_id, name, agent_id, slug, branch, worktree
-   - spec path, status path, tasks path
+   - spec path, status path
    - mode = EFFECTIVE_MODE
 
 ## Output
@@ -38,3 +39,4 @@ BRANCH=<branch or none>
 WORKTREE=<worktree or none>
 SPEC=.dev-docs/features/<feature_id>/SPEC.md
 MODE=<git|local>
+

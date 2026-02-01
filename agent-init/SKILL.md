@@ -4,6 +4,7 @@ description: "Feature-first init: create or reuse worktree/branch and seed per-f
 metadata:
   short-description: "Init feature worktree + context (feature-first, safe)"
 ---
+
 # agent-init (feature-first, idempotent)
 
 Create or reuse a feature worktree/branch (git mode) and seed per-feature context. This skill is safe to rerun.
@@ -25,6 +26,7 @@ Create or reuse a feature worktree/branch (git mode) and seed per-feature contex
 - Worktree path (repo-relative): `.worktrees/agent-<agent_id>`
 - Agent context root (inside worktree or local cwd): `.dev-docs/context/agents/<agent_id>/`
 - Feature spec: `.dev-docs/features/<feature_id>/SPEC.md`
+- Feature status: `.dev-docs/features/<feature_id>/STATUS.json`
 
 ## Workflow
 1) Universal preflight (always first):
@@ -68,11 +70,14 @@ Create or reuse a feature worktree/branch (git mode) and seed per-feature contex
    - Ensure directories:
      - `.dev-docs/context/agents/<agent_id>/history/`
      - `.dev-docs/features/<feature_id>/`
-   - Ensure feature spec:
+     - `.dev-docs/features/<feature_id>/history/` (durable archive location)
+   - Ensure feature files:
      - `.dev-docs/features/<feature_id>/SPEC.md` (create from template if missing)
      - `.dev-docs/features/<feature_id>/STATUS.json` (create if missing)
-   - Ensure per-agent TASKS exists:
+   - Ensure per-agent files:
      - `.dev-docs/context/agents/<agent_id>/TASKS.md` (copy default template if available)
+     - `.dev-docs/context/agents/<agent_id>/WORKING.md` (copy default template if available)
+     - `.dev-docs/context/agents/<agent_id>/PR_DRAFT.md` (copy default template if available)
    - Ensure TASKS contains Controls with:
      - Mode
      - Feature ID/Name
@@ -81,9 +86,9 @@ Create or reuse a feature worktree/branch (git mode) and seed per-feature contex
      - Branch (or None)
      - Worktree (or None)
      - Spec path
-   - Ensure WORKING.md and PR_DRAFT.md exist (copy defaults if available).
 
-8) Output:
+## Output
 Print EXACTLY these two lines and nothing else:
 AGENT_WORKTREE=<WORKTREE_PATH or current directory>
 AGENT_BRANCH=<BRANCH or "none">
+

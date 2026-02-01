@@ -4,6 +4,7 @@ description: "Save durable session handoff for a feature to WORKING.md plus hist
 metadata:
   short-description: "Save session context (feature-first)"
 ---
+
 # handoff
 
 Prepare a context handoff for the current feature.
@@ -40,13 +41,14 @@ Prepare a context handoff for the current feature.
 
 7) Write snapshot and latest pointer using the template.
 
-8) Optionally update history index.
+8) Optionally update history index (best-effort):
+   - If an index file exists, append an entry; otherwise do nothing.
 
 ## Output
 After writing the files, print EXACTLY these 3 lines and NOTHING ELSE:
-? Context saved to `.dev-docs/context/agents/<agent_id>/WORKING.md`
-?? Snapshot saved to `.dev-docs/context/agents/<agent_id>/history/<TS_FILE>--<TAG_SLUG>.md`
-?? To resume: `/mention .dev-docs/context/agents/<agent_id>/WORKING.md`
+✅ Context saved to `.dev-docs/context/agents/<agent_id>/WORKING.md`
+📌 Snapshot saved to `.dev-docs/context/agents/<agent_id>/history/<TS_FILE>--<TAG_SLUG>.md`
+🔜 To resume: `/mention .dev-docs/context/agents/<agent_id>/WORKING.md`
 
 ## Handoff file template
 # Session Context - <TS_ISO>

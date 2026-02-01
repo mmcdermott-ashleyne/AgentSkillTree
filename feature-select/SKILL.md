@@ -4,6 +4,7 @@ description: "Select an existing feature as current without modifying registry d
 metadata:
   short-description: "Set CURRENT_FEATURE"
 ---
+
 # feature-select
 
 Set the current feature pointer to an existing feature.
@@ -20,7 +21,7 @@ Set the current feature pointer to an existing feature.
    - Determine `EFFECTIVE_MODE` = git if both succeed, else local.
 
 2) Resolve feature:
-   - Use explicit feature inputs.
+   - Use explicit inputs.
    - Validate the feature exists in `.dev-docs/features/REGISTRY.json`.
    - If missing, stop with `ERROR: feature not found; run $feature-create`.
 

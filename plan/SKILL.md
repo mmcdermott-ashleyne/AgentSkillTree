@@ -1,6 +1,6 @@
 ---
 name: plan
-description: "Plan the current feature (feature-first). Resolve registry/spec, detect Mode, and write tasks." 
+description: "Plan the current feature (feature-first). Resolve registry/spec, detect Mode, and write tasks."
 metadata:
   short-description: "Plan tasks + criteria (feature-first, git/local safe)"
 ---
@@ -55,7 +55,13 @@ You are planning the current feature. This skill must work independently and be 
 
 6) If `EFFECTIVE_MODE=local`, set Branch/Worktree to `None` in TASKS.
 
+7) Optional: Update feature STATUS.json timestamps (safe, best-effort):
+   - If `.dev-docs/features/<feature_id>/STATUS.json` exists, update:
+     - `state` to `planned` if empty
+     - `updated_at` to current UTC ISO
+   - Do not delete/overwrite other fields.
+
 ## Output
 After writing TASKS, print EXACTLY these 2 lines and nothing else:
-?? Plan saved to `.dev-docs/context/agents/<agent_id>/TASKS.md`
-?? Next: run `$build`
+📝 Plan saved to `.dev-docs/context/agents/<agent_id>/TASKS.md`
+🔜 Next: run `$build`

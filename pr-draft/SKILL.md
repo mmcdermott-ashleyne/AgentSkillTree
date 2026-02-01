@@ -4,6 +4,7 @@ description: "Generate a PR-ready draft from TASKS, diff, and review status. Fea
 metadata:
   short-description: "Draft PR from TASKS + diff (feature-first)"
 ---
+
 # pr-draft
 
 Prepare a PR draft for the current feature.
@@ -42,6 +43,7 @@ Prepare a PR draft for the current feature.
 6) Compose PR body:
    - Use `.github/pull_request_template.md` if present.
    - Otherwise fill fallback sections: Summary, Why, What Changed, How Tested, Risks, Rollout/Rollback, Checklist.
+   - Include a short note that durable completion will be recorded on merge (STATUS + optional feature history), if the repo has retention guidance file.
 
 7) Write `.dev-docs/context/agents/<agent_id>/PR_DRAFT.md` with:
    - `# PR Draft`
@@ -51,5 +53,5 @@ Prepare a PR draft for the current feature.
 
 ## Output
 After writing the draft file, print EXACTLY these 2 lines and nothing else:
-?? PR draft saved to `.dev-docs/context/agents/<agent_id>/PR_DRAFT.md`
-?? Next: run `$pr-open` (if Mode=git)
+🧾 PR draft saved to `.dev-docs/context/agents/<agent_id>/PR_DRAFT.md`
+🔜 Next: run `$pr-open` (if Mode=git)
